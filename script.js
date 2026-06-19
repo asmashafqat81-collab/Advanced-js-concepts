@@ -1,5 +1,5 @@
 
-//Destructuring demo
+//Prototype chaining  demo
 
 const student1 = {
   name: "Asma"
@@ -14,15 +14,20 @@ Object.setPrototypeOf(student1, student2);
 console.log(student2.name)
 
 
+//Destructuring demo
 
-//Chaining demo
+const student = {
+  name: "Asma",
+  age: 21
+}
 
-let num=[1,2,3,4,5,6,7,8,9]
-const newnum=num
-.map( (val)=> val*10 )
-.map( (val)=> val+1)
+const { Fullname, student_age } = student
 
-console.log(newnum)
+console.log(Fullname)
+console.log(student_age)
+
+
+
 
 
 //Spread Operator demo
@@ -33,15 +38,33 @@ const newNumber = [...number, 6, 7,8]
 console.log(newNumber)
 
 
+
+
 //Iterator demo
 
-const fruit = ["Apple", "Banana", "orange"]
+const ite = {
+  count: 1
 
-const ite = fruit[Symbol.ite]()
+  next(){
+    if (this.count <= 3) {
+      return {
+        value: this.count++,
+        done: false
+      }
+    }
+    return {
+      done: true
+    }
+  }
+}
 
 console.log(ite.next())
 console.log(ite.next())
 console.log(ite.next())
+console.log(ite.next())
+
+
+
 
 //generator demo
 
@@ -54,3 +77,4 @@ const gen = count()
 console.log(gen.next())
 console.log(gen.next())
 console.log(gen.next())
+
